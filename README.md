@@ -18,3 +18,6 @@ los mokup miestran pantallas  principales de app
 
 El tablero Trello y las historias de usuario estas disponible en el link
 https://trello.com/b/5W1J0Z47/permutosermone
+
+heroku
+https://blooming-escarpment-96922.herokuapp.com/
