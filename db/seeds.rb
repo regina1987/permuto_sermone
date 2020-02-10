@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Comuna.where(name: 'Vitacura').first_or_create
+Comuna.where(name: 'Las Condes').first_or_create
+Comuna.where(name: 'Lo Barnichea').first_or_create
+Comuna.where(name: 'Providencia').first_or_create
+Comuna.where(name: 'Nuñoa').first_or_create
+Comuna.where(name: 'Santiago').first_or_create
+Comuna.where(name: 'San Joaquín').first_or_create
+Comuna.where(name: 'San Migel').first_or_create
+Comuna.where(name: 'La Reina').first_or_create
+Comuna.where(name: 'Macul').first_or_create
