@@ -2,6 +2,10 @@ class UsersController < ApplicationController
   before_action :set_comunas, only: [:new, :edit, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @user= User.all
+  end
+
   def new
     @user= User.new
   end
