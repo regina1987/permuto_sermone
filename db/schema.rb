@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_10_175513) do
+ActiveRecord::Schema.define(version: 2020_02_17_165426) do
 
   create_table "comunas", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "recipient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipient_id"], name: "index_likes_on_recipient_id"
+    t.index ["sender_id"], name: "index_likes_on_sender_id"
   end
 
   create_table "users", force: :cascade do |t|

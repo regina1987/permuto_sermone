@@ -23,9 +23,11 @@ type="submit">Search</button>
       <p class="card-text"> <%= user.native %></p>
       <h5 class="card-title">Want to practise</h5>
       <p class="card-text"> <%= user.practico %></p>
+      <p><%= user.received_likes.count %> <%= (user.received_likes.count) == 1 ? 'Like' : 'Likes'%></p>
     </div>
     <div class="card-footer">
-      <small class="text-muted"><%=link_to 'Message', users_show_path(user.id)%></small>
+
+      <small class="text-muted"><%=link_to 'Contacme', users_show_path(user.id)%></small>
     </div>
   </div>
 <% end %>

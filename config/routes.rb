@@ -10,5 +10,6 @@ Rails.application.routes.draw do
 get 'pages/index'
 get 'users/index'
 get 'users/:id/show', to: 'users#show', as: 'users_show'
+post 'likes/:user_id', to: 'likes#create', as: 'likes'
 root 'pages#index'
 end

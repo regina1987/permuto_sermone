@@ -1,4 +1,4 @@
-<h2 class="text-center">Let's practise language free</h2>
+<h2 class="text-center">Let's practice language free</h2>
 
 <div class="card-deck m-4 row-cols-1 row-cols-md-3">
   <% 3.times do  user = @users.sample %>
@@ -11,9 +11,7 @@
       <p class="card-text"> <%= user.native %></p>
       <h5 class="card-title">Want to practise</h5>
       <p class="card-text"> <%= user.practico %></p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted"><%=link_to 'Message' %></small>
+      <p><%= user.received_likes.count %> <%= (user.received_likes.count) == 1 ? 'Like' : 'Likes'%></p>
     </div>
   </div>
 <% end %>

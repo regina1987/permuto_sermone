@@ -1,5 +1,7 @@
 
 <div class="container">
+
+
 <div class="row">
     <div class="col-4">
       <%=  image_tag @user.photo, class: 'card-image-top img-fluid', style: 'height:250px;width:250px' %>
@@ -13,8 +15,10 @@
         <p class="card-text"> <%= @user.practico %></p>
         <h5 class="card-title">About me</h5>
         <p class="card-text"> <%= @user.description %></p>
+        <p><%= @user.received_likes.count %> <%= (@user.received_likes.count) == 1 ? 'Like' : 'Likes'%></p>
       </div>
       <div class="card-footer">
+        <p class="text-muted"><%=link_to 'Likeme', likes_path(@user), method: :post%></p>
         <p class="text-muted"><%=link_to 'Contact mi'%></p>
       </div>
     </div>
