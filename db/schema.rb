@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_02_17_165426) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comunas", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -19,8 +22,8 @@ ActiveRecord::Schema.define(version: 2020_02_17_165426) do
   end
 
   create_table "likes", force: :cascade do |t|
-    t.integer "sender_id"
-    t.integer "recipient_id"
+    t.bigint "sender_id"
+    t.bigint "recipient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recipient_id"], name: "index_likes_on_recipient_id"
@@ -33,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_02_17_165426) do
     t.string "native"
     t.string "practico"
     t.string "photo"
-    t.integer "comuna_id"
+    t.bigint "comuna_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
@@ -46,4 +49,7 @@ ActiveRecord::Schema.define(version: 2020_02_17_165426) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "likes", "users", column: "recipient_id"
+  add_foreign_key "likes", "users", column: "sender_id"
+  add_foreign_key "users", "comunas"
 end
