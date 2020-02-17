@@ -1,0 +1,23 @@
+
+<div class="container">
+<div class="row">
+    <div class="col-4">
+      <%=  image_tag @user.photo, class: 'card-image-top img-fluid', style: 'height:250px;width:250px' %>
+    </div>
+    <div class="col-8">
+      <div class="card-body">
+        <h5 class="card-title">Hello. My name is</h5>
+        <p class="card-text"> <%= @user.name %></p>
+
+        <h5 class="card-title">Want to practise</h5>
+        <p class="card-text"> <%= @user.practico %></p>
+        <h5 class="card-title">About me</h5>
+        <p class="card-text"> <%= @user.description %></p>
+      </div>
+      <div class="card-footer">
+        <p class="text-muted"><%=link_to 'Contact mi'%></p>
+      </div>
+    </div>
+
+  </div>
+</div>

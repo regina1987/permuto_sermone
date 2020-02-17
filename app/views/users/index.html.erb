@@ -1,7 +1,19 @@
-<h2 class="text-center">Let's practise language free</h2>
 
+
+<nav class="navbar navbar-light bg-light justify-content-between">
+<a class="navbar-brand"> <h3>Let's practice language witn native speaker</h3></a>
+<form class="form-inline">
+<input class="form-control mr-sm-2" type="search" placeholder="Search"
+aria-label="My native language is" name="native">
+<button class="btn btn-outline-success my-2 my-sm-0"
+type="submit">Search</button>
+</form>
+</nav>
+
+
+<% @users.each_slice(3) do |users3| %>
 <div class="card-deck m-4 row-cols-1 row-cols-md-3">
-  <% 3.times do  user = @users.sample %>
+  <% users3.each do |user| %>
   <div class="card">
     <%=  image_tag user.photo, class: 'card-image-top img-fluid', style: 'height:250px;width:250px' %>
     <div class="card-body">
@@ -13,8 +25,10 @@
       <p class="card-text"> <%= user.practico %></p>
     </div>
     <div class="card-footer">
-      <small class="text-muted"><%=link_to 'Message' %></small>
+      <small class="text-muted"><%=link_to 'Message', users_show_path(user.id)%></small>
     </div>
   </div>
 <% end %>
+
 </div>
+<% end %>
