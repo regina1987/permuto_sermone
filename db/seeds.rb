@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
 
+
+
 Comuna.where(name: 'Vitacura').first_or_create
 Comuna.where(name: 'Las Condes').first_or_create
 Comuna.where(name: 'Lo Barnichea').first_or_create

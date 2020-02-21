@@ -11,8 +11,17 @@
         <h5 class="card-title">Hello. My name is</h5>
         <p class="card-text"> <%= @user.name %></p>
 
+
         <h5 class="card-title">Want to practise</h5>
         <p class="card-text"> <%= @user.practico %></p>
+
+        <% unless @user.languages.empty? %>
+        <h5 class="card-title"> Also I'm intrested in </h5>
+        <% @user.languages.each do |language|%>
+        <p class="card-text"> <%= language.name %>
+          <% end %></p>
+          <% end %>
+          
         <h5 class="card-title">About me</h5>
         <p class="card-text"> <%= @user.description %></p>
         <p><%= @user.received_likes.count %> <%= (@user.received_likes.count) == 1 ? 'Like' : 'Likes'%></p>

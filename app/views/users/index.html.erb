@@ -23,6 +23,14 @@ type="submit">Search</button>
       <p class="card-text"> <%= user.native %></p>
       <h5 class="card-title">Want to practise</h5>
       <p class="card-text"> <%= user.practico %></p>
+      <% unless user.languages.empty? %>
+      <h5 class="card-title"> Also I'm intrested in </h5>
+      <% user.languages.each do |language|%>
+       <%= language.name %>
+        <% end %>
+        <% end %>
+        <br>
+        <br>
       <p><%= user.received_likes.count %> <%= (user.received_likes.count) == 1 ? 'Like' : 'Likes'%></p>
     </div>
     <div class="card-footer">

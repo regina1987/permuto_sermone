@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_17_165426) do
+ActiveRecord::Schema.define(version: 2020_02_17_225748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,19 @@ ActiveRecord::Schema.define(version: 2020_02_17_165426) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "languages", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "languages_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "language_id", null: false
+    t.index ["language_id", "user_id"], name: "index_languages_users_on_language_id_and_user_id"
+    t.index ["user_id", "language_id"], name: "index_languages_users_on_user_id_and_language_id"
   end
 
   create_table "likes", force: :cascade do |t|
