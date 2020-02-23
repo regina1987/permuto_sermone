@@ -13,7 +13,7 @@
   <div class="card-body">
       <h4><%=  "Also I'm intrested in " %></h4>
 
-        <% current_user.languages.each do |language|%>
+        <% current_user.idiomas.each do |language|%>
         <h5><%= language.name %>
         <%= link_to 'x' ,delete_user_language_path(current_user, language), method: :delete, class:"btn btn-outline-dark btn-sm"%>
         </h5>
@@ -22,9 +22,14 @@
 
   <div class="form-grouh5p">
   <div class="card-body">
-<%= form_with(model: current_user.languages.build, url: users_languages_path(current_user),local:true) do |ff|%>
+<%= form_with(model: current_user.idiomas.build, url: users_languages_path(current_user),local:true) do |ff|%>
   <%= ff.text_field :name%>
 <button type="button" class="btn btn-dark"><%= ff.submit%></button>
 
         <% end %>
   </div>
+  </div>
+</div>
+</div>
+</div>
+</div> 

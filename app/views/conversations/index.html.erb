@@ -1,0 +1,23 @@
+
+  <div class="container m-3 tetx">
+    <h3 class="title is-3 text-left">My conversations</h3>
+
+    <% @conversations.each do |conversation| %>
+      <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+        <% if conversation.sender_id == current_user.id %>
+        <% recipient = User.find(conversation.recipient_id) %>
+        <% else %>
+        <% recipient = User.find(conversation.sender_id) %>
+        <% end %>
+        <% unless current_user.id == recipient %>
+
+        <div class="container p-3">
+          <%= image_tag recipient.photo, class: 'card-image-top img-fluid', style: 'height:150px;width:150px' %>
+          <p class="card-text"><%= link_to recipient.name, conversation_messages_path(conversation) %></p>
+        </div>
+
+            <% end %>
+            <% end %>
+          <% end %>
+<%= link_to 'Back', users_index_path%>
+  </div>

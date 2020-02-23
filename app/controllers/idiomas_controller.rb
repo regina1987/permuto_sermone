@@ -1,10 +1,10 @@
-class LanguagesController < ApplicationController
-  before_action :set_language, only: [:show, :edit, :update, :destroy]
+class IdiomasController < ApplicationController
+  before_action :set_idioma, only: [:show, :edit, :update, :destroy]
 
   # GET /languages
   # GET /languages.json
   def index
-    @languages = Language.all
+    @languages = Idioma.all
   end
 
   # GET /languages/1
@@ -14,7 +14,7 @@ class LanguagesController < ApplicationController
 
   # GET /languages/new
   def new
-    @language = Language.new
+    @language = Idioma.new
   end
 
   # GET /languages/1/edit
@@ -24,7 +24,7 @@ class LanguagesController < ApplicationController
   # POST /languages
   # POST /languages.json
   def create
-    @language = Language.new(language_params)
+    @language = Idioma.new(language_params)
 
     respond_to do |format|
       if @language.save
@@ -64,11 +64,11 @@ class LanguagesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_language
-      @language = Language.find(params[:id])
+      @language = Idioma.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
-    def language_params
-      params.require(:language).permit(:name)
+    def idioma_params
+      params.require(:idioma).permit(:name)
     end
 end

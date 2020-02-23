@@ -2,16 +2,12 @@
 
 
 <h2 class="mb-2 text-center">Edit <%= resource_name.to_s.humanize %></h2>
-<div class=" m-4 align-self-center mr-3">
+<div class=" m-4 align-self-center ">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="row">
- <div class="col-6 col-md-4 m-4">
-   <div class="card-body">
-     <%= f.label :photo_url %><br />
-     <%= f.text_field :photo %>
-   </div>
 
+ <div class="col-6">
   <div class="card-body">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -38,7 +34,7 @@
   </div>
 
   <div class="card-body">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password %> <i>( confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
   <div class="card-body">
@@ -56,43 +52,55 @@
   <div class="card-body">
     <%= f.label :practico %><br />
     <%= f.text_field :practico %>
-
   </div>
 
   <div class="card-body">
     <%= f.label :comuna %><br />
     <%= f.select(:comuna_id,  options_for_select(@comunas_array), prompt: "Selecciona categoria") %>
   </div>
-    <div class="card-body">
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+
 <% end %>
 </div>
-</div>
-<div class="col-6 col-md-4 m-4">
+
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<div class="col-6 p-4">
 <div class="card" style="width: 18rem;">
 <%=  image_tag @user.photo, class: 'card-image-top img-fluid', style: 'height:250px;width:250px' %>
 </div>
 
+<div class="card-body">
+  <%= f.label :photo_url %><br />
+  <%= f.text_field :photo %>
+</div>
 
-  <div class='mt-4'>
+<div class="card-body">
 
-  <% unless @user.languages.empty? %>
+  <% unless current_user.idiomas.empty? %>
   <h5 class="card-title"> Also I'm intrested in </h5>
-  <% @user.languages.each do |language|%>
-  <p class="card-text"> <%= language.name %>
-    <% end %></p>
-    <%= link_to 'Delete any languages', users_points_path(current_user), class:"btn btn-outline-dark btn-sm" %>
-  <% else %>
-  <%= link_to 'Add some new languages', users_points_path(current_user), class:"btn btn-outline-dark btn-sm" %>
-    <% end %>
-      </div>
-  <br>
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  <% current_user.idiomas.each do |language|%>
+  <%= language.name %>
+  <% end %>
+  <% end %>
+<br>
+<br>
+<%= link_to 'Add languages', users_points_path(current_user), class: "btn btn-secondary"%>
 </div>
 
+<div class="card-body">
+<div class="actions">
+<%= f.submit "Update", class: "btn btn-secondary" %>
 </div>
 </div>
+<div class="card-body ">
+ <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-secondary" %>
+</div>
+
+</div>
+
+<% end %>
+</div>
+</div>
+<footer>
+<h4  class="text-white text-center p-2"><%= PermutoSermone%> </h4>
+</footer>

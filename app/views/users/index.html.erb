@@ -1,12 +1,12 @@
 
 
 <nav class="navbar navbar-light bg-light justify-content-between">
-<a class="navbar-brand"> <h3>Let's practice language witn native speaker</h3></a>
+<a class="navbar-brand tetx"> <h3 class="tetx">Let's practice language witn native speaker</h3></a>
 <form class="form-inline">
 <input class="form-control mr-sm-2" type="search" placeholder="Search"
 aria-label="My native language is" name="native">
 <button class="btn btn-outline-success my-2 my-sm-0"
-type="submit">Search</button>
+type="submit ">Search</button>
 </form>
 </nav>
 
@@ -14,8 +14,9 @@ type="submit">Search</button>
 <% @users.each_slice(3) do |users3| %>
 <div class="card-deck m-4 row-cols-1 row-cols-md-3">
   <% users3.each do |user| %>
+  <% if user.id != current_user.id %>
   <div class="card">
-    <%=  image_tag user.photo, class: 'card-image-top img-fluid', style: 'height:250px;width:250px' %>
+    <%=  image_tag user.photo, class: 'card-image-top img-fluid', style: 'height:200px;width:200px' %>
     <div class="card-body">
       <h5 class="card-title">Hello. My name is</h5>
       <p class="card-text"> <%= user.name %></p>
@@ -23,22 +24,19 @@ type="submit">Search</button>
       <p class="card-text"> <%= user.native %></p>
       <h5 class="card-title">Want to practise</h5>
       <p class="card-text"> <%= user.practico %></p>
-      <% unless user.languages.empty? %>
+      <% unless user.idiomas.empty? %>
       <h5 class="card-title"> Also I'm intrested in </h5>
-      <% user.languages.each do |language|%>
+      <% user.idiomas.each do |language|%>
        <%= language.name %>
         <% end %>
         <% end %>
-        <br>
-        <br>
       <p><%= user.received_likes.count %> <%= (user.received_likes.count) == 1 ? 'Like' : 'Likes'%></p>
     </div>
-    <div class="card-footer">
-
-      <small class="text-muted"><%=link_to 'Contacme', users_show_path(user.id)%></small>
-    </div>
-  </div>
+        <div class="card-footer">
+          <small class="text-muted"><%=link_to 'Contacme', users_show_path(user.id)%></small>
+        </div>
+      </div>
 <% end %>
-
+<% end %>
 </div>
 <% end %>

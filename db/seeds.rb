@@ -6,8 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
-
-
+Comuna.destroy_all
 
 Comuna.where(name: 'Vitacura').first_or_create
 Comuna.where(name: 'Las Condes').first_or_create

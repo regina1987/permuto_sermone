@@ -1,0 +1,35 @@
+
+<div class="container m-4 tetx">
+
+<h3 class="text-left">Chat between <strong><%= @conversation.sender.name %></strong>
+<%=  image_tag @conversation.sender.photo, class: 'card-image-top img-fluid', style: 'height:100px;width:100px' %>
+y <strong> <%= @conversation.recipient.name %></strong>
+<%=  image_tag @conversation.recipient.photo, class: 'card-image-top img-fluid', style: 'height:100px;width:100px' %>
+</h3>
+
+<section  class="mb4">
+  <% @messages.each do |message| %>
+    <% if message.body %>
+      <% user = User.find(message.user_id) %>
+      <article class="message is-dark">
+          <div class="inline-block">
+            <%=  image_tag  user.photo, class: 'card-image-top img-fluid', style: 'height:40px;width:40px' %>
+            <strong><%= user.name %></strong>
+            <%= message.message_time %>
+          </div>
+
+          <div class="inline-block"><%= message.body %> </div>
+      </article>
+    <% end %>
+  <% end %>
+</section>
+
+<%= form_for [@conversation, @message] do |f| %>
+  <%= f.text_area :body, class: "textarea", placeholder: "Inquire about a trade..." %>
+  <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+  <div class="text-align-right">
+    <%= f.submit "Send message", class: "btn btn-secondary" %>
+  </div>
+<% end %>
+<%= link_to 'Back', conversations_path(current_user)%>
+</div>
