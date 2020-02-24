@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 2020_02_22_175516) do
     t.text "body"
     t.bigint "conversation_id"
     t.bigint "user_id"
-    t.datetime "created_at", default: "2020-02-22 19:38:24", null: false
+    t.datetime "created_at", default: "2020-02-24 00:07:06", null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
