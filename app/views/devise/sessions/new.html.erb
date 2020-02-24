@@ -1,3 +1,6 @@
+<div class="container-fluid p-4">
+
+
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -22,8 +25,8 @@
     <%= f.submit "Log in" %>
   </div>
 <% end %>
+<div class="">
+  <%= render "devise/shared/links" %>
+</div>
 
-<%= render "devise/shared/links" %>
-<footer>
-<h4  class="text-white text-center p-2"><%= PermutoSermone%> </h4>
-</footer>
+</div>

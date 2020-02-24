@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :received_likes, :class_name => 'Like', :foreign_key => 'recipient_id', dependent: :destroy
 
   has_and_belongs_to_many :idiomas,  dependent: :destroy
+  
   has_many :messages,  dependent: :destroy
-    has_many :conversations,  dependent: :destroy
+  has_many :conversations, :foreign_key => 'sender_id', dependent: :destroy
+  has_many :received_messages, :class_name => 'Conversation', :foreign_key => 'recipient_id', dependent: :destroy
 end

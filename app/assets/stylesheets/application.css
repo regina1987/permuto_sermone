@@ -11,17 +11,24 @@
    color:
 #0b212f;
 }
+
 footer {
   height: 50px;
-  background-color:
-#44586a
+  width: 100%;
+  background-color: #44586a;
+  bottom: 0px;
+  color: #ffffff;
+  position: fixed;
+
 }
 
 header {
 font-family: 'Roboto';
  color: #0b212f;
 }
+
 body{
+padding-bottom:  100px;
 font-family: 'Roboto';
 color:#0b212f;
 }

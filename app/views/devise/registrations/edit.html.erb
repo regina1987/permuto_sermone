@@ -1,106 +1,106 @@
-
-
-
 <h2 class="mb-2 text-center">Edit <%= resource_name.to_s.humanize %></h2>
+
 <div class=" m-4 align-self-center ">
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+
   <div class="row">
 
- <div class="col-6">
-  <div class="card-body">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <div class="col-6">
+      <div class="card-body">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+
+
+      <div class="card-body ">
+        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+        <% if @minimum_password_length %>
+        <br />
+        <em><%= @minimum_password_length %> characters minimum</em>
+        <% end %>
+      </div>
+
+      <div class="card-body">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="card-body">
+        <%= f.label :current_password %> <i>( confirm your changes)</i><br />
+        <%= f.password_field :current_password, autocomplete: "current-password" %>
+      </div>
+
+      <div class="card-body">
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="card-body">
+        <%= f.label :About_me %><br />
+        <%= f.text_area :description%>
+      </div>
+
+      <div class="card-body">
+        <%= f.label :native %><br />
+        <%= f.text_field :native %>
+      </div>
+
+      <div class="card-body">
+        <%= f.label :practico %><br />
+        <%= f.text_field :practico %>
+      </div>
+
+      <div class="card-body">
+        <%= f.label :comuna %><br />
+        <%= f.select(:comuna_id,  options_for_select(@comunas_array), prompt: "Selecciona categoria") %>
+      </div>
+
+
+    </div>
+
+    <div class="col-6 p-4">
+
+      <div class="card" style="width: 18rem;">
+        <%=  image_tag @user.photo, class: 'card-image-top img-fluid', style: 'height:250px;width:250px' %>
+      </div>
+
+      <div class="card-body">
+        <%= f.label :photo_url %><br />
+        <%= f.text_field :photo %>
+      </div>
+
+      <div class="card-body">
+        <div class="actions">
+          <%= f.submit "Update", class: "btn btn-secondary" %>
+        </div>
+      </div>
+      <% end %>
+      <div class="card-body">
+        <% unless current_user.idiomas.empty? %>
+        <h5 class="card-title"> Also I'm intrested in </h5>
+        <% current_user.idiomas.each do |language|%>
+        <%= language.name %>
+        <% end %>
+        <% end %>
+        <br>
+        <br>
+      </div>
+      <%= link_to 'Add languages', users_points_path(current_user), class: "btn btn-secondary"%>
+      <div class="card-body ">
+        <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-secondary" %>
+      </div>
+
+    </div>
+
   </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
 
-
-
-  <div class="card-body ">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="card-body">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="card-body">
-    <%= f.label :current_password %> <i>( confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-  <div class="card-body">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="card-body">
-    <%= f.label :About_me %><br />
-    <%= f.text_area :description%>
-  </div>
-  <div class="card-body">
-    <%= f.label :native %><br />
-    <%= f.text_field :native %>
-  </div>
-  <div class="card-body">
-    <%= f.label :practico %><br />
-    <%= f.text_field :practico %>
-  </div>
-
-  <div class="card-body">
-    <%= f.label :comuna %><br />
-    <%= f.select(:comuna_id,  options_for_select(@comunas_array), prompt: "Selecciona categoria") %>
-  </div>
-
-<% end %>
-</div>
-
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-<div class="col-6 p-4">
-<div class="card" style="width: 18rem;">
-<%=  image_tag @user.photo, class: 'card-image-top img-fluid', style: 'height:250px;width:250px' %>
-</div>
-
-<div class="card-body">
-  <%= f.label :photo_url %><br />
-  <%= f.text_field :photo %>
-</div>
-
-<div class="card-body">
-
-  <% unless current_user.idiomas.empty? %>
-  <h5 class="card-title"> Also I'm intrested in </h5>
-  <% current_user.idiomas.each do |language|%>
-  <%= language.name %>
-  <% end %>
-  <% end %>
-<br>
-<br>
-<%= link_to 'Add languages', users_points_path(current_user), class: "btn btn-secondary"%>
-</div>
-
-<div class="card-body">
-<div class="actions">
-<%= f.submit "Update", class: "btn btn-secondary" %>
-</div>
-</div>
-<div class="card-body ">
- <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-secondary" %>
-</div>
 
 </div>
-
-<% end %>
-</div>
-</div>
-<footer>
-<h4  class="text-white text-center p-2"><%= PermutoSermone%> </h4>
-</footer>
