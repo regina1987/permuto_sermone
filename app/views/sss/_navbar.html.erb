@@ -35,6 +35,7 @@
       <% else %>
       <li class="ml-4 text-white"><%= link_to 'Register', new_user_registration_path,class:"text-white"   %>  </li>
       <li class="ml-4 text-white"><%= link_to 'Login', new_user_session_path, class:"text-white"  %>  </li>
+      <li class="ml-4 text-white"><%= link_to 'Sing_in con Facebook', user_facebook_omniauth_authorize_path, class:"text-white"  %>  </li>
         <% end %>
 
     </ul>
