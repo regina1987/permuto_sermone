@@ -9,7 +9,7 @@ class Ability
     user ||= User.new # guest user (not logged in)
 
 
-      can :manage, Staff  if user.admin?
+      can :manage, Staff  if user.staff?
 
 
     #
