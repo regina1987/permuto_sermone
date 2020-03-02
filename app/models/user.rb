@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook]
 
-  belongs_to :comuna,  dependent: :destroy
+  belongs_to :comuna
 
   has_many :given_likes, :class_name => 'Like', :foreign_key => 'sender_id', dependent: :destroy
   has_many :received_likes, :class_name => 'Like', :foreign_key => 'recipient_id', dependent: :destroy
