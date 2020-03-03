@@ -58,6 +58,11 @@
       </div>
 
       <div class="card-body">
+        <%= f.label :Add_material %><br />
+      <%= f.file_field :material %>
+      </div>
+
+      <div class="card-body">
         <%= f.label :comuna %><br />
         <%= f.select(:comuna_id,  options_for_select(@comunas_array), prompt: "Selecciona categoria") %>
       </div>

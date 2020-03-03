@@ -9,7 +9,7 @@ proyecto para intercambiar de idiomas en lugares cercanos
 el modelo fisico muestra los principales cardiales y tablas de app
 
 ![] [modelo fisico]
-![Screenshot](permuto_sermone.png)
+![Screenshot](permuto_sermone.jpg)
 
 
 
