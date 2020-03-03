@@ -77,7 +77,7 @@ before_action :set_comunas, only: [:new, :edit, :create]
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.(:user).permit(:name, :description, :native, :practico, :photo, :comuna_id)
+      params.(:user).permit(:name, :description, :native, :practico, :photo, :comuna_id, :material)
 end
     def set_comunas
     @comunas_array=Comuna.order(:name).pluck(:name, :id)
