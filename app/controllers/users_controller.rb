@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-before_action :set_comunas, only: [:new, :edit, :create]
+before_action :set_user, only: [:show, :edit, :update,]
+before_action :set_comunas, only: [:new, :edit, :create, :destroy]
   # GET /users
   # GET /users.json
   def index
@@ -62,11 +62,17 @@ before_action :set_comunas, only: [:new, :edit, :create]
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    @user = User.find(params[:id])
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+
+  def staff
+      @users = User.all
   end
 
   private

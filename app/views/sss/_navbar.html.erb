@@ -3,7 +3,7 @@
     <% if current_user %>
   <li class="navbar-brand "> Hola <%= current_user.name %>!</li>
     <% end %>
-    <% if  can? :manage, Staff %>
+    <% if  can? :manage, User %>
   <li class="navbar-brand "> You are admin </li>
     <% end %>
   <button class="navbar-toggler text-white border-white" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,7 +20,7 @@
         </a>
 
           <ul  class="dropdown-menu">
-            <% if can? :manage, Staff %>
+            <% if can? :manage, User %>
                 <li class=" text-white"><%= link_to 'Admin', staffs_path,class:"tetx"   %>  </li>
               <% end %>
 

@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook]
-  has_one_attached :material
+  has_one_attached :material, dependent: :destroy
   belongs_to :comuna
 
   has_many :given_likes, :class_name => 'Like', :foreign_key => 'sender_id', dependent: :destroy

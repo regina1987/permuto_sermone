@@ -24,9 +24,9 @@ resources :conversations do
    resources :messages
 end
 
-get 'staffs/index', to: 'staffs#index', as: 'staffs'
-get 'staffs/:id/show', to: 'staffs#show', as: 'staffs_show'
-delete 'staffs/:id/show', to: 'staffs#destroy', as: 'staffs_delete'
+get 'users/staff', to: 'users#staff', as: 'staffs'
+delete 'users/:id', to: 'users#destroy', as: 'delete_user'
+
 
 root "pages#index"
 
