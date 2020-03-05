@@ -1,43 +1,43 @@
 <nav class=" blue navbar navbar-expand-lg  text-white fixed-top p-1  ">
   <li class="navbar-brand "><%= link_to "Home",root_path, class:"text-white" %></li>
+
     <% if current_user %>
-  <li class="navbar-brand "> Hola <%= current_user.name %>!</li>
+    <li class="navbar-brand "> Hola <%= current_user.name %>!</li>
+    <li class="navbar-brand ">  <i class="far fa-heart"></i> <%= current_user.received_likes.count %> </li>
     <% end %>
+
     <% if  can? :manage, User %>
-  <li class="navbar-brand "> You are admin </li>
+    <li class="navbar-brand "> You are admin </li>
     <% end %>
+
   <button class="navbar-toggler text-white border-white" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon text-white "></span>
   </button>
+
   <div class="collapse navbar-collapse " id="navbarNavDropdown">
-    <ul class="navbar-nav  ml-auto ">
+        <ul class="navbar-nav  ml-auto ">
 
-  <% if current_user %>
-      <li class="nav-item dropdown navbar-right">
+          <% if current_user %>
+              <li class="nav-item dropdown navbar-right">
+              <a class="nav-link dropdown-toggle text-white " href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My profile</a>
+              <ul  class="dropdown-menu">
+                  <% if can? :manage, User %>
+                    <li class=" text-white"><%= link_to 'Admin', staffs_path,class:"tetx"   %>  </li>
+                  <% end %>
 
-        <a class="nav-link dropdown-toggle text-white " href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          My profile
-        </a>
+                  <li><%= link_to 'My profile', edit_user_registration_path, class: "tetx"%></li>
+                  <li><%= link_to 'My points', users_index_path, class: "tetx"%></li>
+                  <li><%= link_to 'My languages', users_points_path(current_user), class: "tetx"%></li>
+                  <li><%= link_to 'My conversations', conversations_path, class: "tetx"%></li>
+                  <li><%= link_to 'Sign_out', destroy_user_session_path, method: :delete, class: "tetx"%></li>
+              </ul>
+          </li>
+          <% else %>
+          <li class="ml-4 text-white"><%= link_to 'Register', new_user_registration_path,class:"text-white"   %>  </li>
+          <li class="ml-4 text-white"><%= link_to 'Login', new_user_session_path, class:"text-white"  %>  </li>
+          <li class="ml-4 text-white"><%= link_to 'Sing_in con Facebook', user_facebook_omniauth_authorize_path, class:"text-white"  %>  </li>
+          <% end %>
 
-          <ul  class="dropdown-menu">
-            <% if can? :manage, User %>
-                <li class=" text-white"><%= link_to 'Admin', staffs_path,class:"tetx"   %>  </li>
-              <% end %>
-
-          <li><%= link_to 'My profile', edit_user_registration_path, class: "tetx"%></li>
-          <li><%= link_to 'My points', users_index_path, class: "tetx"%></li>
-            <li><%= link_to 'My languages', users_points_path(current_user), class: "tetx"%></li>
-            <li><%= link_to 'My conversations', conversations_path, class: "tetx"%></li>
-            <li><%= link_to 'Sign_out', destroy_user_session_path, method: :delete, class: "tetx"%></li>
-          </ul>
-        </li>
-
-      <% else %>
-      <li class="ml-4 text-white"><%= link_to 'Register', new_user_registration_path,class:"text-white"   %>  </li>
-      <li class="ml-4 text-white"><%= link_to 'Login', new_user_session_path, class:"text-white"  %>  </li>
-      <li class="ml-4 text-white"><%= link_to 'Sing_in con Facebook', user_facebook_omniauth_authorize_path, class:"text-white"  %>  </li>
-        <% end %>
-
-    </ul>
+        </ul>
   </div>
 </nav>

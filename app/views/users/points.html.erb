@@ -24,9 +24,9 @@
 
   <div class="form-grouh5p">
   <div class="card-body">
-<%= form_with(model: current_user.idiomas.build, url: users_languages_path(current_user),local:true) do |ff|%>
-  <%= ff.text_field :name%>
-<button type="button" class="btn btn-dark"><%= ff.submit%></button>
+    <%= form_with(model: current_user.idiomas.build, url: users_languages_path(current_user),local:true) do |ff|%>
+    <%= ff.text_field :name%>
+    <%= ff.submit %>
 
         <% end %>
   </div>
