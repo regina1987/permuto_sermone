@@ -1,3 +1,4 @@
+
 <h2 class="mb-2 text-center">Edit <%= resource_name.to_s.humanize %></h2>
 
 <div class=" m-4 align-self-center ">
@@ -57,9 +58,10 @@
         <%= f.text_field :practico %>
       </div>
 
+
       <div class="card-body">
         <%= f.label :Add_material %><br />
-      <%= f.file_field :material %>
+        <%= f.file_field :material %>
       </div>
 
       <div class="card-body">
@@ -72,7 +74,7 @@
 
     <div class="col-6 p-4">
 
-      <div class="card" style="width: 18rem;">
+      <div class="card" style="width: 17rem;">
         <%=  image_tag @user.photo, class: 'card-image-top img-fluid', style: 'height:250px;width:250px' %>
       </div>
 
@@ -82,24 +84,35 @@
       </div>
 
       <div class="card-body">
-        <div class="actions">
-          <%= f.submit "Update", class: "btn btn-secondary" %>
-        </div>
-      </div>
-      <% end %>
-      <div class="card-body">
         <% unless current_user.idiomas.empty? %>
-        <h5 class="card-title"> Also I'm intrested in </h5>
+        <%= f.label :Also_I´m_intrested_in %><br />
         <% current_user.idiomas.each do |language|%>
         <%= language.name %>
         <% end %>
         <% end %>
         <br>
-        <br>
       </div>
-      <%= link_to 'Add languages', users_points_path(current_user), class: "btn btn-secondary"%>
+
+      <div class="card-body">
+          <% if @user.material.attached? %>
+                  <%= f.label :I_uploaded_this_material %><br />
+                  <i class="fas fa-file-pdf"></i>
+                  <a href="<%= rails_blob_path(current_user.material, disposition: "attachment") %>" > Descargar PDF</a>
+                  <br>
+                  <br>
+          <% end %>
+        </div>
+
+      <div class="card-body">
+        <div class="actions">
+          <%= f.submit "Update", class: "btn btn-secondary" %>
+        </div>
+      </div>
+      <% end %>
+
+
       <div class="card-body ">
-        <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-secondary" %>
+        <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %>
       </div>
 
     </div>
