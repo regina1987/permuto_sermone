@@ -5,7 +5,7 @@ before_action :set_comunas, only: [:new, :edit, :create, :destroy]
   # GET /users.json
   def index
     if params[:native].present?
-     @users = User.where('native like ?', "%#{params[:native]}%")
+     @users = User.where('native ilike ?', "%#{params[:native]}%")
    else
      @users = User.all
    end

@@ -1,6 +1,6 @@
+<% if user.id != current_user.id %>
 
-<div id="user_<%= user.id %>" class="m-3" style="max-width: 16rem;">
-  <% if user.id != current_user.id %>
+<div id="user_<%= user.id %>" class="p-2" >
   <div class="card ">
     <%=  image_tag user.photo, class: 'card-image-top img-fluid', style: 'height:200px;width:200px' %>
     <div class="card-body">
@@ -22,5 +22,5 @@
           <small class="text-muted"><%=link_to 'Contacme', users_show_path(user.id)%></small>
         </div>
       </div>
-<% end %>
 </div>
+<% end %>
