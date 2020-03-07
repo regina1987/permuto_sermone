@@ -1,0 +1,4 @@
+<li> 
+  		<%= link_to "ver", users_show_path(user.id),'data-remote': true %>
+  		<%= link_to "eliminar", delete_user_path(user.id), method: :delete, data: { confirm: 'Are you sure?' }  %>
+	</li>

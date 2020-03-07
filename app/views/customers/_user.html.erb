@@ -1,0 +1,19 @@
+<thead>
+    <tr >
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+</thead>
+
+<tbody>
+  <% users.each do |user| %>
+        <tr id="user_<%= user.id %>">
+           <th scope="row"><%= user.name %></th>
+           <td><%= user.email %></td>
+           <td><%= link_to "ver", customer_path(user.id),'data-remote': true %></td>
+           <td>  <%= link_to "eliminar",customer_path(user), data: {remote: true, confirm: 'Are you shure?'}, method: :delete %></td>
+         </tr>
+  <% end %>
+</tbody>
