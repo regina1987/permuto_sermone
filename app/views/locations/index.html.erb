@@ -1,0 +1,39 @@
+
+<h3>My Google Maps Demo</h3>
+
+<div class="container m-3">
+  <div id="demo"> Tu estas aqui: </div>
+  <button onclick="getLocation()" class="m-4">Try It</button>
+
+  <div id="map" class="m-4"></div>
+</div>
+
+<script type="text/javascript">
+
+// Initialize and add the map
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+
+  markers = handler.addMarkers(<%=raw @hash.to_json %>);
+
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
+
+var x = document.getElementById("demo");
+
+     function getLocation() {
+         if (navigator.geolocation) {
+             navigator.geolocation.getCurrentPosition(showPosition);
+             } else {
+                 x.innerHTML = "Geolocation is not supported by this browser.";
+                 }
+                 }
+
+ function showPosition(position) {
+ x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " +position.coords.longitude ;
+ }
+
+
+ end
+</script>
