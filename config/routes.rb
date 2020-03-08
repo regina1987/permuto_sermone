@@ -25,8 +25,7 @@ resources :conversations do
 end
 
 get 'users/staff', to: 'users#staff', as: 'staffs'
-delete 'users/:id', to: 'users#destroy', as: 'delete_user'
-
+resources :customers
 
 root "pages#index"
 

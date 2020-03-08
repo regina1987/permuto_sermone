@@ -61,18 +61,16 @@ before_action :set_comunas, only: [:new, :edit, :create, :destroy]
 
   # DELETE /users/1
   # DELETE /users/1.json
-  def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to root_path, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+def destroy
+  @user.destroy
+  respond_to do |format|
+   format.html { redirect_to pages_url, notice: 'User was successfully destroyed.' }
+   format.json { head :no_content }
+ end
+end
 
 
   def staff
-      @users = User.all
   end
 
   private
