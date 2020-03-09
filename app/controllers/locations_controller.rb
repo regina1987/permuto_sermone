@@ -9,6 +9,9 @@ class LocationsController < ApplicationController
         @hash = Gmaps4rails.build_markers(@places) do |place, marker|
          marker.lat place.latitude
          marker.lng place.longitude
+         s=place.name.to_s+place.address.to_s
+         marker.infowindow s
+
         end
     end
 
