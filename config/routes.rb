@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'locations/get_location'
-  get 'locations/find_address'
-  get 'locations/index'
+
+
   devise_for :users, controllers: {
         registrations: 'users/registrations',
         omniauth_callbacks: 'users/omniauth_callbacks'
@@ -29,6 +28,8 @@ end
 
 get 'users/staff', to: 'users#staff', as: 'staffs'
 resources :customers
+
+get 'locations/index'
 
 root "pages#index"
 
