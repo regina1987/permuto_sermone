@@ -29,7 +29,7 @@ end
 get 'users/staff', to: 'users#staff', as: 'staffs'
 resources :customers
 
-get 'locations/index'
+get 'locations', to: 'locations#index'
 
 root "pages#index"
 

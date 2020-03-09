@@ -1,31 +1,32 @@
 <div class="container m-3">
 
+  <%=  form_with(url: "/locations", method: :get, local: true) do |f| %>
+      <div class="form-group">
+        <%= f.label :comuna %><br/>
+        <%= f.select(:comuna_id,  options_for_select(@comunas_array), prompt: "Selecciona categoria") %>
+      </div>
 
-<select name="city_id" id="city_id">
-  <form class="" action="locations/index.html" method="get">
-    <%= select_tag 'comunas', options_for_select(@comunas_array) %>
-    <%= submit_tag('filtrar') %>
-  </form>
-</select>
+        <div class="actions">
+          <%= f.submit "try it", method: :get, class: "btn btn-secondary" %>
+                  </div>
+        </div>
+    <% end %>
 
-
-
-  <h3>Places for lessons close to <%= current_user.comuna.name%> </h3>
+  <h3>Places for lessons close to </h3>
   <div id="map" class="m-4"></div>
 </div>
-  <%= javascript_include_tag "http://YourJavascriptFileLink.js" %>
+
 <script type="text/javascript">
+    $(document).on('ready turbolinks:load', function(){
+      navigator.geolocation.getCurrentPosition(function(position){
+        handler = Gmaps.build('Google');
+        handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+        markers = handler.addMarkers(<%=raw @hash.to_json %>);
 
-  $(document).on('ready turbolinks:load', function(){
-    navigator.geolocation.getCurrentPosition(function(position){
-      handler = Gmaps.build('Google');
-      handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-      markers = handler.addMarkers(<%=raw @hash.to_json %>);
 
-
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+        });
       });
-    });
-  })
+    })
 </script>
