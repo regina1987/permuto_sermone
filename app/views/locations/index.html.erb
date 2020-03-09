@@ -1,0 +1,24 @@
+<div class="container m-3">
+
+
+<select name="city_id" id="city_id">
+<%= options_for_select(@comunas_array) %>
+</select>
+
+  <h3>Places for lessons close to <%= current_user.comuna.name%> </h3>
+  <div id="map" class="m-4"></div>
+</div>
+
+<script type="text/javascript">
+  $(document).on('ready turbolinks:load', function(){
+    navigator.geolocation.getCurrentPosition(function(position){
+      handler = Gmaps.build('Google');
+      handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers(<%=raw @hash.to_json %>);
+
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+      });
+    });
+  })
+</script>

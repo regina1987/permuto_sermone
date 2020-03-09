@@ -28,6 +28,7 @@
                   <li><%= link_to 'My profile', edit_user_registration_path, class: "tetx"%></li>
                   <li><%= link_to 'My points', users_index_path, class: "tetx"%></li>
                   <li><%= link_to 'My languages', users_points_path(current_user), class: "tetx"%></li>
+                  <li><%= link_to 'Places recommended', locations_index_path, class: "tetx"%></li>
                   <li><%= link_to 'My conversations', conversations_path, class: "tetx"%></li>
                   <li><%= link_to 'Sign_out', destroy_user_session_path, method: :delete, class: "tetx"%></li>
               </ul>
