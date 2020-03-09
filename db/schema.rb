@@ -60,19 +60,6 @@ ActiveRecord::Schema.define(version: 2020_03_08_195917) do
     t.index ["user_id", "idioma_id"], name: "index_idiomas_users_on_user_id_and_idioma_id"
   end
 
-  create_table "languages", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "languages_users", id: false, force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "language_id", null: false
-    t.index ["language_id", "user_id"], name: "index_languages_users_on_language_id_and_user_id"
-    t.index ["user_id", "language_id"], name: "index_languages_users_on_user_id_and_language_id"
-  end
-
   create_table "likes", force: :cascade do |t|
     t.bigint "sender_id"
     t.bigint "recipient_id"
@@ -86,7 +73,7 @@ ActiveRecord::Schema.define(version: 2020_03_08_195917) do
     t.text "body"
     t.bigint "conversation_id"
     t.bigint "user_id"
-    t.datetime "created_at", default: "2020-02-24 00:07:06", null: false
+    t.datetime "created_at", default: "2020-03-09 18:10:03", null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end

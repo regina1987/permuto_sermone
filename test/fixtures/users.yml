@@ -2,16 +2,18 @@
 
 one:
   name: MyString
-  description: 
+  description:
   native: MyString
   practico: MyString
   photo: MyString
   comuna: one
+  email: mail1@gmail.com
 
 two:
   name: MyString
-  description: 
+  description:
   native: MyString
   practico: MyString
   photo: MyString
   comuna: two
+  email: mail2@gmail.com
