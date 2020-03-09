@@ -7,14 +7,14 @@ class LocationsController < ApplicationController
           comuna = Comuna.find(params[:comuna_id])
           lat_long = Geocoder.coordinates("#{comuna.name}, santiago, chile")
           @places = Place.near(lat_long, 5)
-          flash.notice = 'No se encontraron lugares' if @places.empty?           
+          flash.notice = 'No se encontraron lugares' if @places.empty?
         end
 
         @hash = Gmaps4rails.build_markers(@places) do |place, marker|
          marker.lat place.latitude
          marker.lng place.longitude
-         s=place.name.to_s+place.address.to_s
-         marker.infowindow
+         string_info = place.name.to_s + place.address.to_s
+         marker.infowindow string_info
         end
 
 
