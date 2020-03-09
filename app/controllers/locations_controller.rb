@@ -5,7 +5,12 @@ class LocationsController < ApplicationController
 
         #@places = Place.find_by(current_user.comuna.name)
         #@places=Place.where(comuna: params[:current_user][:communa])
-        @places=Place.all
+        @places = Place.all
+        if params[:communa].present?
+          lat_long = Geocoder.coordinates("#{params[:communa]}, santiago, chile")
+          @places = Place.near(lat_long, 50)
+        end
+        
         @hash = Gmaps4rails.build_markers(@places) do |place, marker|
          marker.lat place.latitude
          marker.lng place.longitude

@@ -2,8 +2,13 @@
 
 
 <select name="city_id" id="city_id">
-<%= options_for_select(@comunas_array) %>
+  <form class="" action="locations/index.html" method="get">
+    <%= select_tag 'comunas', options_for_select(@comunas_array) %>
+    <%= submit_tag('filtrar') %>
+  </form>
 </select>
+
+
 
   <h3>Places for lessons close to <%= current_user.comuna.name%> </h3>
   <div id="map" class="m-4"></div>
