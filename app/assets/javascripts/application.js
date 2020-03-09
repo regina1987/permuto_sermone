@@ -18,9 +18,4 @@
 //= require popper.js/dist/umd/popper.js
 //= require bootstrap/dist/js/bootstrap
 //= require underscore
-//= require gmaps4rails/gmaps4rails.bing
-  //= require gmaps4rails/gmaps4rails.googlemaps
-  //= require gmaps4rails/gmaps4rails.mapquest
-  //= require gmaps4rails/gmaps4rails.openlayers
-  //= require gmaps4rails/gmaps4rails.base
 //= require_tree .

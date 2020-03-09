@@ -15,6 +15,7 @@
 </div>
 
 <script type="text/javascript">
+  <%= javascript_include_tag "http://YourJavascriptFileLink.js" %>
   $(document).on('ready turbolinks:load', function(){
     navigator.geolocation.getCurrentPosition(function(position){
       handler = Gmaps.build('Google');
