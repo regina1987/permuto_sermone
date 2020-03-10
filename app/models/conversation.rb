@@ -5,6 +5,7 @@ belongs_to :recipient, foreign_key: :recipient_id, class_name: "User"
  has_many :messages,  dependent: :destroy
 
  validates_uniqueness_of :sender_id, scope: :recipient_id
+ validates :sender, :recipient, presence: true
 
  # This scope validation takes the sender_id and recipient_id for the conversation and checks whether a conversation exists between the two ids because we only want two users to have one conversation.
 

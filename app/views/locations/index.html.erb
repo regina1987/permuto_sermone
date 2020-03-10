@@ -1,25 +1,32 @@
 <div class="container m-3">
+  <h3>Places for lessons close to   </h3>
+  <%=  form_with(url: "/locations", method: :get, local: true) do |f| %>
+      <div class="form-group">
+        <%= f.label :chose_area %><br/>
+        <%= f.select(:comuna_id,  options_for_select(@comunas_array), prompt: "Selecciona categoria") %>
+      </div>
 
-
-<select name="city_id" id="city_id">
-<%= options_for_select(@comunas_array) %>
-</select>
-
-  <h3>Places for lessons close to <%= current_user.comuna.name%> </h3>
+      <div class="actions">
+          <%= f.submit "try it", method: :get, class: "btn btn-secondary" %>
+      </div>
+  <% end %>
   <div id="map" class="m-4"></div>
+
 </div>
 
+<script src='//cdn.jsdelivr.net/gmaps4rails/2.1.2/gmaps4rails.js'> </script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js'> </script>
 <script type="text/javascript">
-  $(document).on('ready turbolinks:load', function(){
-    navigator.geolocation.getCurrentPosition(function(position){
-      handler = Gmaps.build('Google');
-      handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-      markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    $(document).on('ready turbolinks:load', function(){
+      navigator.geolocation.getCurrentPosition(function(position){
+        handler = Gmaps.build('Google');
+        handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+        markers = handler.addMarkers(<%=raw @hash.to_json %>);
 
 
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+        });
       });
-    });
-  })
+    })
 </script>

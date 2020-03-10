@@ -2,12 +2,16 @@
 
 one:
   name: MyString
-  type: 
+  type_place: cine
   address: MyString
   comuna: one
+  latitude: 12.34
+  longitude: 12.34
 
 two:
   name: MyString
-  type: 
+  type_place: muni
   address: MyString
   comuna: two
+  latitude: 12.34
+  longitude: 12.34
