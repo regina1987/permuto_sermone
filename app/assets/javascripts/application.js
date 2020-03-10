@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require underscore
 //= require gmaps/google
+//= require gmaps4rails/gmaps4rails.googlemaps
 //= require jquery/dist/jquery
 //= require popper.js/dist/umd/popper.js
 //= require bootstrap/dist/js/bootstrap
