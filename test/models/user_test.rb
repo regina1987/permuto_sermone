@@ -11,8 +11,25 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "email should not be too long" do
+    #imposible crear usuari com demasiado lagro email
     @user=User.new
     @user.email = "a" * 244 + "@example.com"
+    assert_not @user.valid?
+  end
+
+  test "should not save users with the same email " do
+    #unicidad (imposible crear usuario com email repetido)
+    @user1 = User.create(email:'aa@mail', password:'123456')
+    @user1.save
+    @user2 = User.create(email:'aa@mail', password:'123456')
+    @user2.save
+    assert_not @user2.valid?
+  end
+
+  test "should not save user with password shorter than 6 letters" do
+    #imposible crear usuario con password menos que 6 letras
+    @user = User.create(email:'aa@mail', password:'12345')
+    @user.save
     assert_not @user.valid?
   end
 
