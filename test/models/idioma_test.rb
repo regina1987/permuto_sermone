@@ -4,7 +4,7 @@ class IdiomaTest < ActiveSupport::TestCase
 
   test "should not save idioma without name" do
     #presencia(da true porque imposible hacer idioma sin nombre)
-    @idioma = Idioma.new
+    @idioma = Idioma.new(name:"")
     assert_not @idioma.valid?
   end
 
@@ -24,7 +24,11 @@ class IdiomaTest < ActiveSupport::TestCase
     assert_not @idioma2.valid?
   end
 
-
+  test "should not save idioma id name consists numbers " do
+    #inclusion imposible crear idioma con  lname con numeros
+    @idioma = Idioma.new(name:"ru11")
+    assert_not @idioma.valid?
+  end
 
 
 end

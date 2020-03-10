@@ -16,6 +16,9 @@ class User < ApplicationRecord
   has_many :conversations, :foreign_key => 'sender_id', dependent: :destroy
   has_many :received_messages, :class_name => 'Conversation', :foreign_key => 'recipient_id', dependent: :destroy
 
+  validates :native, :practico, format: { with: /\A\D+\z/, message: "Numbers are not allowed" }
+  
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
     user.email = auth.info.email

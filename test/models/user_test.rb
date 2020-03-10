@@ -33,5 +33,20 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "should not save user with native language practice with number " do
+    #inclusion imposible crear usuario con native language con numeros
+    @user = User.create(email:'aa@mail', password:'12345', native:'rus11')
+    @user.save
+    assert_not @user.valid?
+  end
+
+  test "should not save user with  language  for practice with numbers " do
+    #inclusion imposible crear usuario con  language con numeros
+    @user = User.create(email:'aa@mail', password:'12345', practico:'rus11')
+    @user.save
+    assert_not @user.valid?
+  end
+
+
 
 end
