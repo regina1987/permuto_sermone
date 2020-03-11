@@ -17,7 +17,7 @@ class User < ApplicationRecord
   has_many :received_messages, :class_name => 'Conversation', :foreign_key => 'recipient_id', dependent: :destroy
 
   validates :native, :practico, format: { with: /\A\D+\z/, message: "Numbers are not allowed" }
-  
+
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -26,6 +26,8 @@ class User < ApplicationRecord
     user.name = auth.info.name
     user.comuna =Comuna.all.sample
     user.photo = auth.info.image
+    user.native = 'your_mothertang'
+    user.practico = 'new_language'
     #user.photo = 'https://www.ibei.org/images/4611/person_box.png'
    end
   end

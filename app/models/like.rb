@@ -4,7 +4,7 @@ class Like < ApplicationRecord
 
   validates :sender_id, uniqueness: {scope: :recipient_id, message: "cant interact twice with the same user"}
   validate :cant_interact_myself
-    validates :sender, :recipient, presence: true
+  validates :sender, :recipient, presence: true
 
   def cant_interact_myself
     if self.sender == self.recipient

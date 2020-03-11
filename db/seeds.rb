@@ -8,7 +8,7 @@
 User.destroy_all
 Comuna.destroy_all
 Place.destroy_all
-
+Event.destroy_all
 
 Comuna.where(name: 'Vitacura').first_or_create
 Comuna.where(name: 'Las Condes').first_or_create
@@ -38,3 +38,9 @@ Place.create(name: 'Baobab Cafe', type_place: 'cafe', address: 'Los Leones 2580,
 Place.create(name: 'Juan Valdez Café', type_place: 'cafe', address: 'Av. Larrain 5862, La Reina, Región Metropolitana', comuna: Comuna.find_by(name: "La Reina"))
 Place.create(name: 'Logotipo del comercio Restauran Árabe y Shawarmas De Botto Al Cafe Macul', type_place: 'restaurante', address: 'Av Macul 2620, Macul, Región Metropolitana', comuna: Comuna.find_by(name: "Macul"))
 Place.create(name: 'Ilustre Municipalidad de San Miguel', type_place: 'muni', address: 'Gran Avenida Jose Miguel Carrera 3418, San Miguel, Región Metropolitana', comuna: Comuna.find_by(name: "San Migel"))
+
+Event.create(title: 'Spanglish party', start: "14/03/2020 17:00")
+Event.create(title: 'Spanglish party', start: "21/03/2020 17:00")
+Event.create(title: 'Spanglish party', start: "28/03/2020 17:00")
+Event.create(title: 'Spanglish party', start: "04/04/2020 17:00")
+Event.create(title: 'Market of lunguges', start: "22/03/2020 17:00")
