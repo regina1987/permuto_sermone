@@ -1,8 +1,12 @@
 <div class=" m-4 p-4 ">
-  <h2 class="pb-5"> We have our events in "Espacio literario y cultural Plaza Ñuñoa"</h2>
+  <h2 class="pb-3"> We have our events in "Espacio literario y cultural Plaza Ñuñoa"</h2>
   <br>
+  <% if  can? :manage, Event %>
+      <button type="button" id="add" class="btn blue text-white mb-3" data-dismiss='modal'>Add new event</button>
+  <% end %>
+  <div class=" w-75 text-center" id="calendar">
 
-  <div class=" w-75 text-center" id="calendar"></div>
+  </div>
 
 </div>
 
