@@ -1,3 +1,4 @@
+
 <%= form_with(model: event) do |form| %>
   <% if event.errors.any? %>
     <div id="error_explanation">
@@ -22,8 +23,10 @@
   </div>
 
   <div class="actions">
-      <%= form.submit "Save", class:"btn btn-secondary"  %>
+      <% if  can? :manage, Event %>
+            <%= form.submit "Save", class:"btn btn-secondary"  %>
+            <%= link_to 'Destroy',event, method: :delete, data:{ confirm: 'DELETE?', remote: true}, class:"btn btn-danger" %>
+        <% end %>
       <button type="button" class="btn btn-primary" data-dismiss='modal'>Close</button>
-      <%= link_to 'Destroy',event, method: :delete, data:{ confirm: 'DELETE?', remote: true}, class:"btn btn-danger" %>
   </div>
 <% end %>
