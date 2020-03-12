@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-
+  resources :events
+  
 
   devise_for :users, controllers: {
         registrations: 'users/registrations',
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 get 'pages/index'
+get 'pages/calendar'
 
 get 'users/index'
 get 'users/:id/show', to: 'users#show', as: 'users_show'

@@ -10,6 +10,7 @@ class Ability
 
 
       can :manage, User  if user.admin?
+      can :manage, Event  if user.admin?
 
 
     #

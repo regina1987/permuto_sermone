@@ -16,6 +16,8 @@
 //= require gmaps/google
 //= require underscore
 //= require jquery/dist/jquery
+//= require moment/moment
+//= require fullcalendar/dist/fullcalendar
 //= require popper.js/dist/umd/popper.js
 //= require bootstrap/dist/js/bootstrap
 //= require_tree .

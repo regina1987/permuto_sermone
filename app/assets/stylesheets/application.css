@@ -1,5 +1,6 @@
 /*
 *= require bootstrap/dist/css/bootstrap
+*= require fullcalendar/dist/fullcalendar
 *= require_tree .
 *= require_self
 */
