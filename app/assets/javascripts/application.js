@@ -20,4 +20,5 @@
 //= require fullcalendar/dist/fullcalendar
 //= require popper.js/dist/umd/popper.js
 //= require bootstrap/dist/js/bootstrap
-//= require_tree .
+//= require users
+//= require pages
