@@ -25,6 +25,9 @@ ActiveAdmin.register_page "Dashboard" do
            end
          end
        end
-
+  panel "Lenguas nativos" do
+    render 'shared/chart'
+  end
+  
   end # content
 end
