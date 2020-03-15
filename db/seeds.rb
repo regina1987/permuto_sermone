@@ -46,4 +46,4 @@ Event.create(title: 'Spanglish party', start: "28/03/2020 17:00")
 Event.create(title: 'Spanglish party', start: "04/04/2020 17:00")
 Event.create(title: 'Market of lunguges', start: "22/03/2020 17:00")
 
-AdminUser.create!(email: 'superadmin@.com', password: '123456', password_confirmation: '123456') if Rails.env.development?
+AdminUser.create!(email: 'superadmin@.com', password: '123456', password_confirmation: '123456') 
