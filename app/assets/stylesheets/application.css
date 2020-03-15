@@ -6,27 +6,31 @@
 */
 
 .blue {
-  background-color:
-#44586a
+  background-color: #000049;
 }
 
 .biege{
-  background-color:#e7e3dc;
+  background-color: #c1c4cb;
 }
+
  .tetx {
-   color:
-#0b212f;
+   color:#000049;
 }
 
 footer {
+  font-family: 'Pacifico';
   height: 50px;
   width: 100%;
-  background-color: #44586a;
+  background-color: #000049;
   bottom: 0px;
   color: #ffffff;
   position: fixed;
-
 }
+
+ h2{
+   font-family: 'Roboto';
+    color: #000049;
+ }
 
 header {
 font-family: 'Roboto';
@@ -36,7 +40,7 @@ font-family: 'Roboto';
 body{
 padding-bottom:  100px;
 font-family: 'Roboto';
-color:#0b212f;
+color:#0e0d12;
 }
 #map {
   height: 400px;  /* The height is 400 pixels */
