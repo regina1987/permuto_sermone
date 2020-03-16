@@ -1,4 +1,4 @@
-<div class="container m-3">
+<div class="container ">
   <h3>Places for lessons close to   </h3>
   <%=  form_with(url: "/locations", method: :get, local: true) do |f| %>
       <div class="form-group">
@@ -20,8 +20,6 @@
         handler = Gmaps.build('Google');
         handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
         markers = handler.addMarkers(<%=raw @hash.to_json %>);
-
-
           handler.bounds.extendWith(markers);
           handler.fitMapToBounds();
         });

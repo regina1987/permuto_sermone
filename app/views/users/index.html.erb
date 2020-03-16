@@ -1,13 +1,12 @@
 
 
-<nav class="navbar navbar-light bg-light justify-content-between">
-      <a class="navbar-brand tetx"> <h3 class="tetx">Let's practice language witn native speaker</h3></a>
-      <form class="form-inline">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search"
-      aria-label="My native language is" name="native">
-      </form>
+<nav class="navbar navbar-light bg-light justify-content-between col-sm-8">
+    <a class="navbar-brand tetx"> <h3 class="tetx">Let's practice </h3></a>
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="My native language is" name="native">
+    </form>
 </nav>
 
-<div id="buscar" class="card-deck m-2 d-flex justify-content-around">
+<div id="buscar" class=" m-2 d-md-flex justify-content-around" >
         <%= render @users%>
 </div>

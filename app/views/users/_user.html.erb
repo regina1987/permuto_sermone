@@ -1,26 +1,28 @@
+
 <% if user.id != current_user.id %>
 
-<div id="user_<%= user.id %>" class="p-2" >
-  <div class="card ">
+<div id="user_<%= user.id %>" class="card-deck p-2 col-12 col-md-3 " >
+  <div class="card"  >
     <%=  image_tag user.photo, class: 'card-image-top img-fluid', style: 'height:200px;width:200px' %>
-    <div class="card-body">
-      <h5 class="card-title">Hello. My name is</h5>
-      <p class="card-text"> <%= user.name %></p>
-      <h5 class="card-title">My native language is</h5>
-      <p class="card-text"> <%= user.native %></p>
-      <h5 class="card-title">Want to practise</h5>
-      <p class="card-text"> <%= user.practico %></p>
-      <% unless user.idiomas.empty? %>
-      <h5 class="card-title"> Also I'm intrested in </h5>
-      <% user.idiomas.each do |language|%>
-       <%= language.name %>
-        <% end %>
-        <% end %>
-      <p><%= user.received_likes.count %> <%= (user.received_likes.count) == 1 ? 'Like' : 'Likes'%></p>
-    </div>
+      <div class="card-body">
+          <h5 class="card-title">Hello. My name is</h5>
+          <p class="card-text"> <%= user.name %></p>
+          <h5 class="card-title">My native language is</h5>
+          <p class="card-text"> <%= user.native %></p>
+          <h5 class="card-title">Want to practise</h5>
+          <p class="card-text"> <%= user.practico %></p>
+          <% unless user.idiomas.empty? %>
+              <h5 class="card-title"> Also I'm intrested in </h5>
+              <% user.idiomas.each do |language|%>
+                  <%= language.name %>
+              <% end %>
+            <% end %>
+          <p><%= user.received_likes.count %> <%= (user.received_likes.count) == 1 ? 'Like' : 'Likes'%></p>
+        </div>
         <div class="card-footer">
           <small class="text-muted"><%=link_to 'Contacme', users_show_path(user.id)%></small>
-        </div>
       </div>
+    </div>
 </div>
+
 <% end %>

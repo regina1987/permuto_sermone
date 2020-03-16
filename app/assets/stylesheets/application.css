@@ -6,22 +6,33 @@
 */
 
 .blue {
-  background-color: #000049;
+  background-color:#100e2f;
 }
-
+#background_index{
+  background-color: #100e2f;
+  height: 150px;
+  font-family: 'Pacifico';
+  color: #ffffff;
+}
+.yellow{
+  color: #fbc030;
+  height: 20px;
+}
 .biege{
-  background-color: #c1c4cb;
+  background-color:#d8d7d9  ;
 }
-
+ #index {
+    font-family: 'Pacifico';
+ }
  .tetx {
-   color:#000049;
+   color:#100e2f;
 }
 
 footer {
   font-family: 'Pacifico';
   height: 50px;
   width: 100%;
-  background-color: #000049;
+  background-color: #100e2f;
   bottom: 0px;
   color: #ffffff;
   position: fixed;
@@ -29,7 +40,7 @@ footer {
 
  h2{
    font-family: 'Roboto';
-    color: #000049;
+    color: #07040d;
  }
 
 header {
@@ -40,9 +51,30 @@ font-family: 'Roboto';
 body{
 padding-bottom:  100px;
 font-family: 'Roboto';
-color:#0e0d12;
+color:#07040d;
 }
-#map {
-  height: 400px;  /* The height is 400 pixels */
-  width:  800px;  /* The width is the width of the web page */
- }
+
+nav {
+ width: 100%;
+}
+
+@media (min-width: 801px)
+{
+  #map {
+    height: 400px;  /* The height is 400 pixels */
+    width:  800px;  /* The width is the width of the web page */
+   }
+  .mis_point
+  {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px)
+{
+  #map {
+    height:400px;
+    width:300px;
+   }
+
+}
