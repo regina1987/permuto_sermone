@@ -58,23 +58,21 @@ nav {
  width: 100%;
 }
 
+
+
 @media (min-width: 801px)
 {
   #map {
     height: 400px;  /* The height is 400 pixels */
-    width:  800px;  /* The width is the width of the web page */
+    max-width:  100%;  /* The width is the width of the web page */
    }
-  .mis_point
-  {
-    max-width: 100%;
-  }
 }
 
 @media (max-width: 600px)
 {
   #map {
     height:400px;
-    width:300px;
+    max-width:  100%;
    }
 
 }
