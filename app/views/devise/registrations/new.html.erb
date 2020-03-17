@@ -1,57 +1,60 @@
 
 <div class="container">
   <h2>Sign up</h2>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="form-group">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+        <div class="form-group">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
 
-  <div class="form-group">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+        <div class="form-group">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password" %>
+        </div>
 
-  <div class="form-group">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+        <div class="form-group">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
 
-  <div class="form-group">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="form-group">
-    <%= f.label :About_me %><br />
-    <%= f.text_area :description%>
-  </div>
-  <div class="form-group">
-    <%= f.label :native %><br />
-    <%= f.text_field :native %>
-  </div>
-  <div class="form-group">
-    <%= f.label :practico %><br />
-    <%= f.text_field :practico %>
-  </div>
-  <div class="form-group">
-    <%= f.label :photo_url %><br />
-    <%= f.text_field :photo %>
-  </div>
-  <div class="form-group">
-    <%= f.label :comuna %><br />
-    <%= f.select(:comuna_id,  options_for_select(@comunas_array), prompt: "Selecciona categoria") %>
-  </div>
+        <div class="form-group">
+          <%= f.label :name %><br />
+          <%= f.text_field :name %>
+        </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+        <div class="form-group">
+          <%= f.label :About_me %><br />
+          <%= f.text_area :description%>
+        </div>
 
-<%= render "devise/shared/links" %>
+        <div class="form-group">
+          <%= f.label :native %><br />
+          <%= f.text_field :native %>
+        </div>
 
+        <div class="form-group">
+          <%= f.label :practico %><br />
+          <%= f.text_field :practico %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :photo_url %><br />
+          <%= f.text_field :photo %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :comuna %><br />
+          <%= f.select(:comuna_id,  options_for_select(@comunas_array), prompt: "Selecciona categoria") %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Sign up" %>
+        </div>
+    <% end %>
+  <%= render "devise/shared/links" %>
 </div>

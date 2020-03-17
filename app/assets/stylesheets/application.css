@@ -8,22 +8,23 @@
 .blue {
   background-color:#100e2f;
 }
+
 #background_index{
   background-color: #100e2f;
   height: 150px;
   font-family: 'Pacifico';
   color: #ffffff;
 }
-.yellow{
-  color: #fbc030;
-  height: 20px;
-}
+
+
 .biege{
   background-color:#d8d7d9  ;
 }
+
  #index {
     font-family: 'Pacifico';
  }
+
  .tetx {
    color:#100e2f;
 }
@@ -58,21 +59,7 @@ nav {
  width: 100%;
 }
 
-
-
-@media (min-width: 801px)
-{
-  #map {
-    height: 400px;  /* The height is 400 pixels */
-    max-width:  100%;  /* The width is the width of the web page */
-   }
-}
-
-@media (max-width: 600px)
-{
   #map {
     height:400px;
     max-width:  100%;
    }
-
-}

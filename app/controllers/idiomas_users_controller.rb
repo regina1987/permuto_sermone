@@ -18,18 +18,18 @@ before_action :set_userslanguages, only: [:show, :edit, :update, :destroy]
   end
 
   def destroy
-  @user.idiomas.delete(@language)
-  respond_to do |format|
-    format.html { redirect_to users_points_url, notice: 'relacion was successfully destroyed.' }
-    format.json { head :no_content }
+      @user.idiomas.delete(@language)
+      respond_to do |format|
+        format.html { redirect_to users_points_url, notice: 'relacion was successfully destroyed.' }
+        format.json { head :no_content }
+      end
   end
-end
 
-  private
+private
 
-def set_userslanguages
-  @user = User.find(current_user.id)
-  @language = Idioma.find(params[:idioma_id])
-end
+  def set_userslanguages
+    @user = User.find(current_user.id)
+    @language = Idioma.find(params[:idioma_id])
+  end
 
 end

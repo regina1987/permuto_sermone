@@ -1,32 +1,31 @@
 
 <%= form_with(model: event) do |form| %>
-  <% if event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
-
-      <ul>
-      <% event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :start %>
-    <%= form.text_field :start %>
-  </div>
-
-  <div class="actions">
-      <% if  can? :manage, Event %>
-            <%= form.submit "Save", class:"btn btn-secondary"  %>
-            <%= link_to 'Destroy',event, method: :delete, data:{ confirm: 'DELETE?', remote: true}, class:"btn btn-danger" %>
+        <% if event.errors.any? %>
+            <div id="error_explanation">
+                <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+                  <ul>
+                      <% event.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                      <% end %>
+                  </ul>
+            </div>
         <% end %>
-      <button type="button" class="btn btn-primary" data-dismiss='modal'>Close</button>
-  </div>
+
+      <div class="field">
+          <%= form.label :title %>
+          <%= form.text_field :title %>
+      </div>
+
+      <div class="field">
+          <%= form.label :start %>
+          <%= form.text_field :start %>
+      </div>
+
+      <div class="actions">
+            <% if  can? :manage, Event %>
+                  <%= form.submit "Save", class:"btn btn-secondary"  %>
+                  <%= link_to 'Destroy',event, method: :delete, data:{ confirm: 'DELETE?', remote: true}, class:"btn btn-danger" %>
+              <% end %>
+            <button type="button" class="btn btn-primary" data-dismiss='modal'>Close</button>
+      </div>
 <% end %>

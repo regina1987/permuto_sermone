@@ -1,17 +1,10 @@
 <% if can? :manage, User %>
   <p id="notice"><%= notice %></p>
-
   <div class="container">
-  
-    <%= link_to "Ver usuarios", customers_path, 'data-remote': true%>
-
-    <table class="table" id="staff">
-    </table>
-
-     <%= render 'customers/modal' %>
-
+        <%= link_to "Ver usuarios", customers_path, 'data-remote': true%>
+        <table class="table" id="staff"></table>
+         <%= render 'customers/modal' %>
   </div>
-
 <% else %>
     <%= "You are not admin" %>
 <%end %>

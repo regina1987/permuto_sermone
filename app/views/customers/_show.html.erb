@@ -1,42 +1,35 @@
 <div class="container">
-
-<div class="row">
-  
-  <div class="col-4">
-      <%=  image_tag user.photo, class: 'card-image-top img-fluid', style: 'height:250px;width:250px' %>
-  </div>
-
-    <div class="col-8">
-      <div class="card-body">
-        <h5 class="card-title">User's name</h5>
-        <p class="card-text"> <%= user.name %></p>
-
-        <h5 class="card-title">User's native language is</h5>
-        <p class="card-text"> <%= user.native %></p>
-          <% if user.material.attached? %>
-                  <h5 class="card-title"> User's recomendation for <%= user.native %>  practice  </h5>
-                  <i class="fas fa-file-pdf"></i>
-                  <a href="<%= rails_blob_path(user.material, disposition: "attachment") %>" > Descargar PDF</a>
-                  <br>
-                  <br>
-          <% end %>
-
-        <h5 class="card-title">Want to practise</h5>
-        <p class="card-text"> <%= user.practico %></p>
-            <% unless user.idiomas.empty? %>
-              <h5 class="card-title"> Also he is intrested in </h5>
-              <% user.idiomas.each do |language|%>
-                  <%= language.name %>
+    <div class="row">
+        <div class="col-4">
+            <%=  image_tag user.photo, class: 'card-image-top img-fluid', style: 'height:250px;width:250px' %>
+        </div>
+        <div class="col-8">
+              <div class="card-body">
+                <h5 class="card-title">User's name</h5>
+                <p class="card-text"> <%= user.name %></p>
+                <h5 class="card-title">User's native language is</h5>
+                <p class="card-text"> <%= user.native %></p>
+                  <% if user.material.attached? %>
+                          <h5 class="card-title"> User's recomendation for <%= user.native %>  practice  </h5>
+                          <i class="fas fa-file-pdf"></i>
+                          <a href="<%= rails_blob_path(user.material, disposition: "attachment") %>" > Descargar PDF</a>
+                          <br>
+                          <br>
                   <% end %>
-                  <br>
-                  <br>
-            <% end %>
-
-        <h5 class="card-title">About user</h5>
-        <p class="card-text"> <%= user.description %></p>
-
-      <p><%= user.received_likes.count %> <%= (user.received_likes.count) == 1 ? 'Like' : 'Likes'%></p>
+                <h5 class="card-title">Want to practise</h5>
+                <p class="card-text"> <%= user.practico %></p>
+                    <% unless user.idiomas.empty? %>
+                          <h5 class="card-title"> Also he is intrested in </h5>
+                          <% user.idiomas.each do |language|%>
+                                <%= language.name %>
+                          <% end %>
+                              <br>
+                              <br>
+                    <% end %>
+                <h5 class="card-title">About user</h5>
+                <p class="card-text"> <%= user.description %></p>
+                <p><%= user.received_likes.count %> <%= (user.received_likes.count) == 1 ? 'Like' : 'Likes'%></p>
+            </div>
+      </div>
     </div>
-
-  </div>
 </div>

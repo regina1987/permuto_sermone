@@ -1,54 +1,40 @@
 
 <div class="container">
-
-
-<div class="row">
-  <div class="col-4">
-      <%=  image_tag @user.photo, class: 'card-image-top img-fluid', style: 'height:250px;width:250px' %>
-  </div>
-    <div class="col-8">
-      <div class="card-body">
-        <h5 class="card-title">Hello. My name is</h5>
-        <p class="card-text"> <%= @user.name %></p>
-
-        <h5 class="card-title">My native language is</h5>
-        <p class="card-text"> <%= @user.native %></p>
-
-        <% if @user.material.attached? %>
-                <h5 class="card-title"> My recomendation for <%= @user.native %>  practice  </h5>
-                <i class="fas fa-file-pdf"></i>
-                <a href="<%= rails_blob_path(@user.material, disposition: "attachment") %>" > Descargar PDF</a>
-                <br>
-                <br>
-        <% end %>
-
-
-        <h5 class="card-title">Want to practise</h5>
-        <p class="card-text"> <%= @user.practico %></p>
-
-        <% unless @user.idiomas.empty? %>
-          <h5 class="card-title"> Also I'm intrested in </h5>
-          <% @user.idiomas.each do |language|%>
-              <%= language.name %>
-              <% end %>
-              <br>
-              <br>
-        <% end %>
-        
-        <h5 class="card-title">About me</h5>
-        <p class="card-text"> <%= @user.description %></p>
-
-
-
-
-      <p><%= @user.received_likes.count %> <%= (@user.received_likes.count) == 1 ? 'Like' : 'Likes'%></p>
-    </div>
-
-      <div class="card-footer">
-            <p class="text-muted"><%=link_to 'Likeme', likes_path(@user), method: :post%></p>
-            <%= link_to "Message #{@user.name}", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', class:"button is-link" %>
+    <div class="row">
+      <div class="col-4">
+          <%=  image_tag @user.photo, class: 'card-image-top img-fluid', style: 'height:250px;width:250px' %>
       </div>
+      <div class="col-8">
+              <div class="card-body">
+                  <h5 class="card-title">Hello. My name is</h5>
+                  <p class="card-text"> <%= @user.name %></p>
+                  <h5 class="card-title">My native language is</h5>
+                  <p class="card-text"> <%= @user.native %></p>
+                  <% if @user.material.attached? %>
+                        <h5 class="card-title"> My recomendation for <%= @user.native %>  practice  </h5>
+                        <i class="fas fa-file-pdf"></i>
+                        <a href="<%= rails_blob_path(@user.material, disposition: "attachment") %>" > Descargar PDF</a>
+                        <br>
+                        <br>
+                  <% end %>
+                <h5 class="card-title">Want to practise</h5>
+                <p class="card-text"> <%= @user.practico %></p>
+                <% unless @user.idiomas.empty? %>
+                    <h5 class="card-title"> Also I'm intrested in </h5>
+                    <% @user.idiomas.each do |language|%>
+                        <%= language.name %>
+                    <% end %>
+                        <br>
+                        <br>
+                <% end %>
+                <h5 class="card-title">About me</h5>
+                <p class="card-text"> <%= @user.description %></p>
+                <p><%= @user.received_likes.count %> <%= (@user.received_likes.count) == 1 ? 'Like' : 'Likes'%></p>
+            </div>
+            <div class="card-footer">
+                    <p class="text-muted"><%=link_to 'Likeme', likes_path(@user), method: :post%></p>
+                    <%= link_to "Message #{@user.name}", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', class:"button is-link" %>
+            </div>
+        </div>
     </div>
-
-  </div>
 </div>

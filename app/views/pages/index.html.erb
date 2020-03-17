@@ -1,19 +1,19 @@
 
-<h1 class="justify-content-center align-items-center pb-4" id="index">Let's practice language free</h1>
-
+<h1 class=" d-md-flex justify-content-center align-items-center pb-4" id="index">Let's practice language free</h1>
+<!-- monstramos 3 usuarios alazar --> 
 <div class="card-deck m-4 row-cols-1 row-cols-md-3">
   <% 3.times do  user = @users.sample %>
-  <div class="card">
-    <%=  image_tag user.photo, class: 'card-image-top img-fluid', style: 'height:250px;width:250px' %>
-    <div class="card-body">
-      <h5 class="card-title">Hello. My name is</h5>
-      <p class="card-text"> <%= user.name %></p>
-      <h5 class="card-title">My native language is</h5>
-      <p class="card-text"> <%= user.native %></p>
-      <h5 class="card-title">Want to practise</h5>
-      <p class="card-text"> <%= user.practico %></p>
-      <p><%= user.received_likes.count %> <%= (user.received_likes.count) == 1 ? 'Like' : 'Likes'%></p>
-    </div>
-  </div>
-<% end %>
+      <div class="card">
+        <%=  image_tag user.photo, class: 'card-image-top img-fluid', style: 'height:250px;width:250px' %>
+            <div class="card-body">
+                <h5 class="card-title">Hello. My name is</h5>
+                <p class="card-text"> <%= user.name %></p>
+                <h5 class="card-title">My native language is</h5>
+                <p class="card-text"> <%= user.native %></p>
+                <h5 class="card-title">Want to practise</h5>
+                <p class="card-text"> <%= user.practico %></p>
+                <p><%= user.received_likes.count %> <%= (user.received_likes.count) == 1 ? 'Like' : 'Likes'%></p>
+            </div>
+      </div>
+  <% end %>
 </div>
