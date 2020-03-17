@@ -15,8 +15,8 @@ el modelo fisico muestra los principales cardiales y tablas de app
 
 los mokup miestran pantallas  principales de app
  ![] [mokup]
- ![Screenshot](mokup1.jpg)
-![Screenshot](mokup2.jpg)
+ ![Screenshot](mockup1.jpg)
+![Screenshot](mockup2.jpg)
 
 El tablero Trello y las historias de usuario estas disponible en el link
 https://trello.com/b/5W1J0Z47/permutosermone
